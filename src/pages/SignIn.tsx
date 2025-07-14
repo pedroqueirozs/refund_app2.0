@@ -1,3 +1,7 @@
 export function SignIn() {
-    return <h1>Page SignIn</h1>
+    return (
+        <form className="w-full flex flex-col gap-4">
+
+        </form>
+    )
 }
