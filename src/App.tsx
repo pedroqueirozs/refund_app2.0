@@ -1,9 +1,8 @@
-function App() {
+import { Routes } from "./routes"
+
+export function App() {
   return (
-    <>
-     <h1 className="bg-blue-600">Hello World</h1>
-    </>
+    <Routes />
   )
 }
 
-export default App
