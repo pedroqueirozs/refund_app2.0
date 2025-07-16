@@ -7,8 +7,6 @@ import { Refund } from "../pages/Refund";
 
 import { NotFound } from "../pages/NotFound";
 
-
-
 export function ManageRoutes() {
   return (
     <Routes>

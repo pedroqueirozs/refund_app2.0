@@ -1,4 +1,3 @@
-
 type Props = React.ComponentProps<"input"> & {
   legend?: string;
 };

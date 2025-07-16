@@ -4,27 +4,26 @@ import { Loading } from "../components/Loading";
 import { EmployRoutes } from "./EmployRoutes";
 import { AuthRoutes } from "./AuthRoutes";
 
-const isLoading = false
+const isLoading = false;
 const session = {
   user: {
-    role: "employee"
-  }
-}
-
+    role: "employee",
+  },
+};
 
 export function Routes() {
   function Route() {
     switch (session?.user.role) {
       case "employee":
-        return <EmployRoutes />
+        return <EmployRoutes />;
       case "manager":
-        return <ManageRoutes />
+        return <ManageRoutes />;
       default:
-        return <AuthRoutes />
+        return <AuthRoutes />;
     }
   }
   if (isLoading) {
-    return <Loading />
+    return <Loading />;
   }
   return (
     <BrowserRouter>

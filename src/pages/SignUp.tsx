@@ -12,7 +12,7 @@ export function SignUp() {
 
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();
-    console.log(name, email, password, confirmPassword)
+    console.log(name, email, password, confirmPassword);
   }
   return (
     <form onSubmit={onSubmit} className="w-full flex flex-col gap-4">
