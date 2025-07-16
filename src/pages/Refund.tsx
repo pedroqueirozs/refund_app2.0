@@ -1,25 +1,34 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
 import { Button } from "../components/Button";
 import { Input } from "../components/Input";
 import { Select } from "../components/Select";
 import { Upload } from "../components/Upload";
+
+import fileSvg from "../assets/file.svg"
+
 import { CATEGORIES, CATEGORIES_KEYS } from "../utils/categories";
 
 export function Refund() {
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (params.id) {
+      return navigate(-1)
+    }
+
     console.log(name, amount, isLoading, category, filename);
     navigate("/confirm", { state: { fromSubmit: true } });
+
   }
-  const [category, setCategory] = useState("");
-  const [name, setName] = useState("");
-  const [amount, setAmount] = useState("");
+  const [category, setCategory] = useState("transport");
+  const [name, setName] = useState("teste");
+  const [amount, setAmount] = useState("35");
   const [isLoading, setLoading] = useState(false);
   const [filename, setFilename] = useState<File | null>(null);
 
   const navigate = useNavigate();
+  const params = useParams<{ id: string }>()
 
   return (
     <form
@@ -40,6 +49,7 @@ export function Refund() {
         onChange={(e) => setName(e.target.value)}
         required
         legend="Nome da solicitação"
+        disabled={!!params.id}
       />
       <div className="flex gap-4">
         <Select
@@ -47,6 +57,8 @@ export function Refund() {
           legend="Categoria"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
+          disabled={!!params.id}
+
         >
           {CATEGORIES_KEYS.map((category) => (
             <option key={category} value={category}>
@@ -59,15 +71,24 @@ export function Refund() {
           onChange={(e) => setAmount(e.target.value)}
           legend="Valor"
           required
+          disabled={!!params.id}
+
         />
       </div>
+      {params.id ? (
+        <a
+          href="https://www.google.com/" target="blank" className="text-sm text-green-100 font-semibold flex items-center justify-center gap-2 my-6 hover:opacity-70 transition ease-linear">
+          <img src={fileSvg} alt="icone de arquvo" />
+          Abrir comprovante</a>
+      ) :
+        <Upload
+          onChange={(e) => e.target.files && setFilename(e.target.files[0])}
+          filename={filename && filename.name}
+        />
+      }
 
-      <Upload
-        onChange={(e) => e.target.files && setFilename(e.target.files[0])}
-        filename={filename && filename.name}
-      />
       <Button isLoading={isLoading} type="submit">
-        Enviar
+        {params.id ? "Voltar" : "Enviar"}
       </Button>
     </form>
   );

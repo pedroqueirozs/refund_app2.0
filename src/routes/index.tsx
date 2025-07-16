@@ -1,14 +1,34 @@
 import { BrowserRouter } from "react-router";
-/* import { AuthRoutes } from "./AuthRoutes"; */
 import { ManageRoutes } from "./ManagerRoutes";
-/* import { EmployRoutes } from "./EmployRoutes"; */
+import { Loading } from "../components/Loading";
+import { EmployRoutes } from "./EmployRoutes";
+import { AuthRoutes } from "./AuthRoutes";
+
+const isLoading = false
+const session = {
+  user: {
+    role: "employee"
+  }
+}
+
 
 export function Routes() {
+  function Route() {
+    switch (session?.user.role) {
+      case "employee":
+        return <EmployRoutes />
+      case "manager":
+        return <ManageRoutes />
+      default:
+        return <AuthRoutes />
+    }
+  }
+  if (isLoading) {
+    return <Loading />
+  }
   return (
     <BrowserRouter>
-      {/* <AuthRoutes /> */}
-      {/* <EmployRoutes /> */}
-      <ManageRoutes />
+      <Route />
     </BrowserRouter>
   );
 }
