@@ -4,7 +4,7 @@ import { Button } from "../components/Button";
 import { useState } from "react";
 
 export function SignIn() {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading /* setIsLoading */] = useState(false);
 
   function onAction(formData: FormData) {
     console.log(formData.get("email"));

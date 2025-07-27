@@ -23,7 +23,7 @@ export function Refund() {
   const [category, setCategory] = useState("transport");
   const [name, setName] = useState("teste");
   const [amount, setAmount] = useState("35");
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, /* setLoading */] = useState(false);
   const [filename, setFilename] = useState<File | null>(null);
 
   const navigate = useNavigate();

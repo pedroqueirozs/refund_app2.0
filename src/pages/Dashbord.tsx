@@ -7,7 +7,7 @@ import { formatCurrency } from "../utils/formatCurrency";
 import searchSvg from "../assets/search.svg";
 import { CATEGORIES } from "../utils/categories";
 
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import { Pagination } from "../components/Pagination";
 
 const REFUND_EXAMPLE = {
@@ -20,8 +20,10 @@ const REFUND_EXAMPLE = {
 export function Dashboard() {
   const [name, setName] = useState("");
   const [page, setPage] = useState(1);
-  const [totalOfPage, setTotalOfPage] = useState(10);
-  const [refunds, setRefunds] = useState<RefundTypeProps[]>([REFUND_EXAMPLE]);
+  const [totalOfPage /* setTotalOfPage */] = useState(10);
+  const [refunds /* setRefunds */] = useState<RefundTypeProps[]>([
+    REFUND_EXAMPLE,
+  ]);
 
   function fetchRefund(e: React.FormEvent) {
     e.preventDefault();
