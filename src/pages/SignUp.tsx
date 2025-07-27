@@ -63,11 +63,13 @@ export function SignUp() {
       <Input
         required
         legend="Nome"
+        data-testid="name"
         placeholder="Insira o seu nome"
         onChange={(e) => setName(e.target.value)}
       />
       <Input
         type="email"
+        data-testid="email"
         required
         legend="E-mail"
         placeholder="seu@email.com"
@@ -75,6 +77,7 @@ export function SignUp() {
       />
       <Input
         type="password"
+        data-testid="password"
         required
         legend="Senha"
         placeholder="123456"
@@ -82,6 +85,7 @@ export function SignUp() {
       />
       <Input
         type="password"
+        data-testid="confirmPassword"
         required
         legend="Confirme a senha"
         placeholder="123456"
