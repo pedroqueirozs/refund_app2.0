@@ -4,14 +4,11 @@ import { Loading } from "../components/Loading";
 import { EmployRoutes } from "./EmployRoutes";
 import { AuthRoutes } from "./AuthRoutes";
 
-const isLoading = false;
-const session = {
-  user: {
-    role: "",
-  },
-};
+import { useAuth } from "../hooks/useAuth";
 
 export function Routes() {
+  const { session, isLoading } = useAuth();
+
   function Route() {
     switch (session?.user.role) {
       case "employee":
