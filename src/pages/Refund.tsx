@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { data, useNavigate, useParams } from "react-router";
-import { file, z, ZodError } from "zod";
+import { useNavigate, useParams } from "react-router";
+import {  z, ZodError } from "zod";
 import { AxiosError } from "axios";
 import { Button } from "../components/Button";
 import { Input } from "../components/Input";
