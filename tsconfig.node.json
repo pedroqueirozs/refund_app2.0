@@ -7,7 +7,6 @@
     "skipLibCheck": true,
 
     //Configurando o cypress
-
     "types": ["cypress", "node"],
 
     /* Bundler mode */
